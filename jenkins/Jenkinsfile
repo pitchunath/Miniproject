@@ -1,6 +1,6 @@
   def NEXUS_VERSION = "nexus3"
       def  NEXUS_PROTOCOL = "http"
-       def NEXUS_URL = "http://20.50.16.180:8081"
+       def NEXUS_URL = "20.50.16.180:8081"
        def NEXUS_REPOSITORY = "nexusproject"
        def NEXUS_CREDENTIAL_ID = "nexusnew1"
       
