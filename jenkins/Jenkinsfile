@@ -1,13 +1,13 @@
-  def NEXUS_VERSION = "nexus3/3.25.1-04-SNAPSHOT"
+  def NEXUS_VERSION = "nexus3"
       def  NEXUS_PROTOCOL = "http"
-       def NEXUS_URL = "52.188.135.219:8081"
-       def NEXUS_REPOSITORY = "Nexusrepo"
+       def NEXUS_URL = "http://20.50.16.180:8081"
+       def NEXUS_REPOSITORY = "nexusproject"
        def NEXUS_CREDENTIAL_ID = "nexusnew1"
       
 node{
    
         stage('Checkout'){
-           git 'https://github.com/ananthand6/Testforteam'
+           git 'https://github.com/pitchunath/Miniproject.git'
           } 
           
         
@@ -19,7 +19,8 @@ node{
         stage('SonarQube Analysis'){
             def mavenHome = tool name: 'maven 3.6.3' , type: 'maven'
             withSonarQubeEnv('sonar'){
-               sh "${mavenHome}/bin/mvn sonar:sonar -Dsonar.projectKey=sonar -Dsonar.host.url=http://52.224.132.99:9000 -Dsonar.login=8e2f375d47dd243cbf5a02fa510e85c12840c432"
+               sh "${mavenHome}/bin/mvn sonar:sonar -Dsonar.projectKey=sonar -Dsonar.host.url=http://51.124.54.246:9000 
+  -Dsonar.login=4f9cbd48f5d6bf459d38dcd90cf21ad71266be2b"
             }
          }
     
@@ -55,7 +56,7 @@ node{
                                 [artifactId: pom.artifactId,
                                 classifier: '',
                                 file: "pom.xml",
-                                type: "pom"]
+                                type: "xml"]
                             ]
                         );
                     } else {
